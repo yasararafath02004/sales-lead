@@ -8,18 +8,17 @@ const LoginPage = () => {
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  // Dummy login check
-  if (username === "admin" && password === "admin") {
-    localStorage.setItem("token", "dummy-token");
-    localStorage.setItem("role", "admin");
-    navigate("/dashboard");
-  } else {
-    setError("Login failed. Use username: admin and password: admin");
-  }
-};
-
+    // Dummy login bypass
+    if (username === "admin" && password === "admin") {
+      localStorage.setItem("token", "dummy-token");
+      localStorage.setItem("role", "admin");
+      navigate("/dashboard");
+    } else {
+      setError("Login failed. Use username: admin and password: admin");
+    }
+  };
 
   return (
     <div className="container mt-5" style={{ maxWidth: '400px' }}>
