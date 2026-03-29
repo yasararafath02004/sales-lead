@@ -8,17 +8,19 @@ const LoginPage = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const res = await API.post('/login', { username, password });
-      localStorage.setItem('token', res.data.token);
-      localStorage.setItem('role', res.data.role);
-      navigate('/dashboard');
-    } catch (err) {
-      setError('Login failed. Please check your credentials.');
-    }
-  };
+  const handleSubmit = (e) => {
+  e.preventDefault();
+
+  // Dummy login check
+  if (username === "admin" && password === "admin") {
+    localStorage.setItem("token", "dummy-token");
+    localStorage.setItem("role", "admin");
+    navigate("/dashboard");
+  } else {
+    setError("Login failed. Use username: admin and password: admin");
+  }
+};
+
 
   return (
     <div className="container mt-5" style={{ maxWidth: '400px' }}>
