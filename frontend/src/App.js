@@ -27,7 +27,7 @@ function App() {
         <Routes>
           <Route path="/" element={<LoginPage />} />
           <Route path="/leads" element={<PrivateRoute><LeadPage /></PrivateRoute>} />
-          <Route path="/dashboard" element={<PrivateRoute><UserDashboard /></PrivateRoute>} />
+          <Route path="/dashboard" element={<UserDashboard />} />
           <Route path="/reports" element={<PrivateRoute><Reports /></PrivateRoute>} />
         </Routes>
       </div>
